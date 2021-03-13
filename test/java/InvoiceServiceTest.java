@@ -44,6 +44,14 @@ public class InvoiceServiceTest {
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(1,30.2,2);
         Assert.assertEquals(expectedInvoiceSummary,summary);
     }
+
+    @Test
+    public void givenDistanceAndTimeForPremierRide_ShouldReturnTotalFare(){
+        double distance = 2.0;
+        int time = 5;
+        double fare = invoiceGenerator.calculateFareForPremiumRide(distance,time);
+        Assert.assertEquals(40,fare,0.0);
+    }
 }
 
 
