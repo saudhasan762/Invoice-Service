@@ -7,7 +7,7 @@ public class InvoiceServiceTest {
     InvoiceGenerator invoiceGenerator = null;
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp(){
         invoiceGenerator = new InvoiceGenerator();
     }
 
@@ -33,8 +33,16 @@ public class InvoiceServiceTest {
                 new Ride(0.1,1)
         };
         InvoiceSummary invoiceSummary = invoiceGenerator.calculateFare(rides);
-        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2,30.0);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2,30.0,0);
         Assert.assertEquals(expectedInvoiceSummary, invoiceSummary);
+    }
+
+    @Test
+    public void givenUserID_shouldReturn_invoiceList() {
+        int userId= 2;
+        InvoiceSummary summary = invoiceGenerator.invoiceList(userId);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(1,30.2,2);
+        Assert.assertEquals(expectedInvoiceSummary,summary);
     }
 }
 

@@ -3,7 +3,7 @@ public class InvoiceSummary {
     private final double totalFare;
     private final double averageFare;
 
-    public InvoiceSummary(int numOfRides, double totalFare) {
+    public InvoiceSummary(int numOfRides, double totalFare,int id) {
         this.numORides = numOfRides;
         this.totalFare = totalFare;
         this.averageFare = this.totalFare/this.numORides;
